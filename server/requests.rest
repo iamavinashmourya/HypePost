@@ -1,7 +1,1 @@
-POST http://localhost:3000/signin
-Content-Type: application/json
-
-{
-    "email": "avinahgoweb@yed.com",
-    "password": "Kunal1"
-}
+GET http://localhost:3000/get-upload-url
