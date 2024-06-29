@@ -32,14 +32,21 @@ mongoose.connect(process.env.DB_LOCATION, {
 
 // setting up s3 bucket
 aws.config.update({
+<<<<<<< HEAD
   accessKeyId: process.env.AWS_ACCESS_KEY,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   region: 'ap-south-1',
+=======
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: 'ap-south-1'
+>>>>>>> cd45d931750d043b7150861f1cb16fc32cc9de41
 });
 
 const s3 = new aws.S3();
 
 const generateUploadURL = async () => {
+<<<<<<< HEAD
   const date = new Date();
   const imageName = `${nanoid()}-${date.getTime()}.jpeg`;
 
@@ -50,6 +57,20 @@ const generateUploadURL = async () => {
     ContentType: 'image/jpeg',
   });
 };
+=======
+
+    const date = new Date();
+    const imageName = `${nanoid()}-${date.getTime()}.jpeg`;
+
+    return await s3.getSignedUrlPromise('putObject', {
+        Bucket: 'hype-post',
+        Key: imageName,
+        Expires: 1000,
+        ContentType: "image/jpeg"
+    })
+
+}
+>>>>>>> cd45d931750d043b7150861f1cb16fc32cc9de41
 
 const formatDataSend = (user) => {
 
@@ -76,6 +97,7 @@ const generateUsername = async (email) => {
  
 // upload image url route
 server.get('/get-upload-url', (req, res) => {
+<<<<<<< HEAD
   generateUploadURL()
     .then((url) => res.status(200).json({ uploadURL: url }))
     .catch((err) => {
@@ -84,6 +106,14 @@ server.get('/get-upload-url', (req, res) => {
     });
 });
 
+=======
+    generateUploadURL().then(url => res.status(200).json({ uploadURL: url }))
+    .catch(err => {
+        console.log(err.message);
+        return res.status(500).json({ error: err.message })
+    })
+})
+>>>>>>> cd45d931750d043b7150861f1cb16fc32cc9de41
 
 server.post("/signup", (req, res) => {
 
