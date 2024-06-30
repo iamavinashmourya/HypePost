@@ -42,10 +42,10 @@ const generateUploadURL = async () => {
   const imageName = `${nanoid()}-${date.getTime()}.jpeg`;
 
   return await s3.getSignedUrlPromise('putObject', {
-    Bucket: 'hype-post',
+    Bucket: 'blogging-website-yt-project',
     Key: imageName,
     Expires: 1000,
-    ContentType: 'image/jpeg',
+    ContentType: "image/jpeg"
   });
 };
 
