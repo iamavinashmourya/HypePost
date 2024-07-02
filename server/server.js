@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import admin from "firebase-admin"
-import serviceAccountKey from "./hypepost-98463-firebase-adminsdk-m4t7k-639294bed6.json" assert { type: "json" }
+import serviceAccountKey from "./hypepost-98463-firebase-adminsdk-m4t7k-49052d7757.json" assert { type: "json" }
 import { getAuth } from "firebase-admin/auth";
 import aws from "aws-sdk";
 
