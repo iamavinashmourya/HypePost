@@ -14,7 +14,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTE0Mzc1ODU2NjhkNzBlMThjZTVlMCIsImlhdCI6MTcyMDc5NjAyMX0.klo7x2048r6xUs7n5bydwuGKOYp7A1LVoIiKbbhpmN4
 
 {
-    "title": "test-title",
+    "title": "test-title-hello",
     "banner": "https://example.com/image-url",
     "des": "this is a short description",
     "content": {
