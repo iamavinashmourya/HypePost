@@ -9,4 +9,4 @@
 #     "password": "John@123"
 # }
 
-GET  http://localhost:3000/latest-blogs
+GET  http://localhost:3000/trending-blogs
