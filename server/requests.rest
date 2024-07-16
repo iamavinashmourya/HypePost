@@ -9,4 +9,9 @@
 #     "password": "John@123"
 # }
 
-GET  http://localhost:3000/trending-blogs
+POST   http://localhost:3000/search-blogs
+Content-Type: application/json
+
+{
+    "tag": "business"
+}
