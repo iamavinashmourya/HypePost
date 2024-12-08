@@ -433,6 +433,33 @@ server.post('/create-blog', verifyJWT, (req, res) => {
 
 })
 
+server.post("/get-blog", (req, res) => {
+
+    let { blog_id } = req.body;
+
+    let incrementVal = 1;
+
+    Blog.findOneAndUpdate({ blog_id }, { $inc : { "activity.total_reads": incrementVal } })
+    .populate("author", "personal_info.fullname personal_info.username personal_info.profile_img")
+    .select("title des content banner activity publishedAt blog_id tags")
+    .then(blog => {
+
+        User.findOneAndUpdate({ "personal_info.username": blog.author.personal_info.username }, {
+            $inc : { "account_info.total_reads": incrementVal }
+        })
+        .catch(err => {
+            return res.status(500).json({ error: err.message })
+        })
+
+        return res.status(200).json({ blog });
+
+    })
+    .catch(err => {
+        return res.status(500).json({ error: err.message });
+    })
+
+})
+
 server.listen(PORT, () => {
     console.log('Server Started, listening on port => ' + PORT);
 })

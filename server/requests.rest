@@ -9,9 +9,16 @@
 #     "password": "John@123"
 # }
 
+# POST http://localhost:3000/get-blog
+# Content-Type: application/json
+
+# {
+#     "blog_id": "GitHub-Repositories-Every-Software-Engineer-Should-Know_MitbQ9E6aBA03FEfXMpM"
+# }
+
 POST http://localhost:3000/get-profile
 Content-Type: application/json
 
 {
-    "username": "igugug"
+    "username": "pillking421"
 }
